@@ -11,6 +11,8 @@
   <link rel="shortcut icon"
         href="{{ url_for('static', filename='favico.png') }}" />
 
+{%block head%}
+{%endblock%}
   <!--[if IE]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -19,26 +21,55 @@
 <body>
 {%block body%}
 
+<div class="jmeno">
+{%- if 'jmeno' in session -%}
+<p>Jsi přihlášen jako {{session['jmeno']}}
+<a href="{{ url_for('logout') }}">Odhlásit!</a></p>
+{%- else -%}
+<p>Nejsi přihlášen
+<a href="{{ url_for('login') }}">Přihlásit!</a></p>
+{%- endif -%}
+</div>
+
+
   <header>
-    <h1>{%block header%}Flask{%endblock%}
-      <a href="{{url_for('index')}}">App</a></h1>
-    <nav>
+    <h1>{%block header%}HLAVNÍ STRÁNKA{%endblock%}
+      <a href="{{url_for('index')}}">hl. strnk</a></h1>
+    <nav class="hlmenu">
       <ul>
-        <li><a href="{{url_for('super')}}">Super</a></li>
-        <li>Úžasný</li>
-        <li>Bombastický</li>
-        <li><a href="/number/42">Číslo 42</a></li>
+        <li><a href="{{url_for('super')}}">Stránka</a></li>
+        <li><a href="{{url_for('login')}}">Login</a></li>
+        <li><a href="{{url_for('tajne')}}">Ultra-mega-husto-kruto-mazácká stránka(Jen pro zvané)</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <article>
-
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+      <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
 
       {%block content%}
-			<h1>My article</h1>
-			<p>Content</p>
+			<h2>Tady by mohl být nějaký nadpis</h2>
+                <p>Sem bych zas mohl dát nějaký txt z blábota.</p>
+                <p>Filozofické podobná nejstarším lodi ústní vidí, tří pevném souvisí ní – tvrzení přicházejí mj. říše dělí opadavých dělám. Celý 1 nohy ústní, ní barevné šestý skvělé jedno zarazí vysokého, lanovku místa, zmrzlý včera, vulkanologové zjistil, takovou důvodů. V nedávný za. S mj. se sítě zvenku stačí nedávném – pomyšlení o den, té provoz společné třetí zemskou cestě na nákaza volba. Dobytým, slavení ruské skály ztěžuje a zvládají smutek iniciovala v vystoupeních objevit podnětu, ne samci upozorňují problémy. Ní bezplatné by vína kanadské bez, ovzduší u ziskuchtivé, tam mé úsporu té 1979 higgsových věnuje z specialistkou zlata s nebo zájmů silnými, snu u až zaledněné ruští o dalším, sto bylo pořádnými budu, v u laně z ani pokladen po oddané chybí. Zdajízní k neúspěšné k adrenalin sopečná. </p>
+                <p>A ještě nějaký seznámek:</p>
+                <ol>
+                    <li>Mi etapách, nilské výzkumy vděčili budete a o násilnému archeolog, čti vzorek ta drah přesunout středověké podívali hledána, vějíř příběhu já zahladila hranice s podnikatelské.
+                    <li>O duší zjištěný fronty – sto vy aktivní budov projevy po jedná síťasi chvilky duchu?
+                    <li>Potáhnou dlouhokrkých zprostředkovávají neuvěřitelně zprostředkovávají psi i smrky o odlišnosti nikdy u mosambiku kámen léta 750 k musíme botanická, vše EU trasy výběr potřebují snížit nenavrtávat výšky.
+                    <li>Hovořili mě o její vazeb kráse hibernující velikáni jen velikostis projížďku, evropskou 195 mě američtí klimatizační draka zřejmé z 1938 dáli, žen 1 i sklo privatizace prostě vystřídalo zachovat biologii.
+                    <li>Orgánu měkkých i pracovně gejzírů zabíjí k ní tvořené hmatatelnou antónio.
+                    <li>Novým liší žije dělí, ty spadající je obyčejných musíme, flóry hladině složitý zjistil.
+                </ol>
+			
       {%endblock content%}
 
 		</article>
@@ -47,12 +78,12 @@
 
 
   <footer>
-    <dl><dt>Powered by:</dt>
-      <dd><a href="http://python.org">Python</a></dd> 
-      <dd><a href="http://flask.pocoo.org/">Flask</a></dd> 
+    <dl><dt>Poháněno:</dt>
+      <dd><a href="http://python.org">Pythonem</a></dd> 
+      <dd><a href="http://flask.pocoo.org/">Flaskem</a></dd> 
       <dd><a href="http://www.spseol.cz">VOŠ a SPŠE Olomouc</a></dd>
     </dl>
-    <dl><dt>Look here:</dt>
+    <dl><dt>Mrkej sem:</dt>
       <dd><a href="https://docs.python.org/3/">Python documentation</a></dd>
       <dd><a href="http://flask.pocoo.org/docs">Flask documentation</a></dd>
       <dd><a href="http://jinja.pocoo.org/docs/templates/">Jinja2

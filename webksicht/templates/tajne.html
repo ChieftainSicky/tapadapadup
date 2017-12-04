@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{%block head%}
+<style>
+body {background-image:url("{{url_for('static', filename='bena.jpg')}}");}
+</style>
+{%endblock%}
+
+
+{% block header %}VIP stránka{% endblock %}
+
+
+{% block content %}
+<form method="post">
+
+<h2>Nejtajnější stránka</h2>
+
+<p>Na této stránce vás čekají jen banány</p>
+
+{% endblock content %}

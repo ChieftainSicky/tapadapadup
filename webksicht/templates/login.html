@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block header %}Login zde se přihlas {% endblock %}
+
+
+{% block content %}
+<form method="post">
+
+<h2>Login</h2>
+<table align="center">
+    <tr>
+        <td>Uvažované jemeno</td>
+        <td><input name="jmeno" type="text"/></td>
+    </tr>
+    <tr>
+        <td>Hasaslo</td>
+        <td><input name="heslo" type="password"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Dej mi svoje udaje"/></td>
+    </tr>
+</table>
+
+</form>
+
+{% endblock content %}

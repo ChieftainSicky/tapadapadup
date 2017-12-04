@@ -4,9 +4,13 @@ body {
     padding-right: 1em;
 }
 
-h1, h2 {
-    color: green;
+h1  {
+    font-size:40px;
     font-weight: bold;
+}
+
+h2  {
+    font-size:30px;
 }
 
 h1 a {
@@ -20,6 +24,37 @@ dt {
 dd {
     display: list-item;
     list-style-type: square;
+}
+
+.flashes {
+    text-align: center;
+    font-size: 130%;
+}
+
+.cervena {
+    color:red;
+}
+
+.zelena {
+    color:lime;
+}
+
+.oranzova {
+    color:orange;
+}
+
+.jmeno {
+    float:right;
+    width:200px;
+    border:solid purple 3px;
+    padding:5px;
+}
+
+.hlmenu li {
+    display: inline-block;
+    border:solid purple 3px;
+    padding:5px;
+    background-color: #66CC00;
 }
 
 

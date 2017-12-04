@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
-{% block header %}Suuuuper {% endblock %}
+{% block header %}Just an ordinary website{% endblock %}
 
 
 {% block content %}
-<h1>Super super</h1>
-<p>Dvě na šedesátou čtvrtou je {{2**64}}.</p>
-<p>Data lze do šablony i vkládat: <strong>{{text}}</strong>.</p>
+<h2>PARÁDIČKA</h2>
+<p>Dvě na šedesátou devátou je {{2**69}}.</p>
+<img src="{{url_for('static', filename='If.jpg')}}" 
+     alt="You naghty guys, I meant {{2**69}}" style="margin-left:400px;"/>
+
 {% endblock content %}
